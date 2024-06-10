@@ -27,7 +27,7 @@ class ScooterApiOrder:
         payload = {
             "courierId": courier_id
         }
-        response = requests.put(f'https://qa-scooter.praktikum-services.ru/api/v1/orders/accept/{order_id}', params=payload)
+        response = requests.put(f'{ApiUrl.API_URL_ORDER_ACCEPT}{order_id}', params=payload)
         return response
 
 

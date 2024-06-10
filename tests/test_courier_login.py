@@ -1,6 +1,7 @@
 import allure
 import pytest
 from helpers.helpers_courier import ScooterApiCourier
+from data import ResponseText
 
 
 @allure.feature('Проверка ручки "Авторизация курьера"')
@@ -24,7 +25,7 @@ class TestCourierLogin:
         ScooterApiCourier.registration_courier_stable(courier[0], courier[1], courier[2])
         response = ScooterApiCourier.login_courier(login_courier, password_courier)
         response_text = response.json()["message"]
-        assert response.status_code == 400 and response_text == 'Недостаточно данных для входа'
+        assert response.status_code == 400 and response_text == ResponseText.text_courier_login_insufficient_data
 
     @allure.title('Проверка авторизации курьера при введении логина или пароля с ошибкой')
     @pytest.mark.parametrize('login_courier, password_courier',
@@ -37,4 +38,4 @@ class TestCourierLogin:
         ScooterApiCourier.registration_courier_stable(courier[0], courier[1], courier[2])
         response = ScooterApiCourier.login_courier(login_courier, password_courier)
         response_text = response.json()["message"]
-        assert response.status_code == 404 and response_text == 'Учетная запись не найдена'
+        assert response.status_code == 404 and response_text == ResponseText.text_courier_login_incorrect_data

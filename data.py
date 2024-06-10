@@ -21,4 +21,16 @@ class ApiUrl:
     API_URL_GET_ORDER_TRACK = f'{API_URL}api/v1/orders/track'
     API_URL_ORDER_ACCEPT = f'{API_URL}api/v1/orders/accept/'
 
+class ResponseText:
+    text_tru = '{"ok":true}'
+    text_courier_delete_insufficient_data = 'Недостаточно данных для удаления курьера'
+    text_courier_delete_not_found = 'Курьера с таким id нет'
+    text_courier_login_insufficient_data = 'Недостаточно данных для входа'
+    text_courier_login_incorrect_data = 'Учетная запись не найдена'
+    text_courier_registration_double_login = 'Этот логин уже используется'
+    text_courier_registration_insufficient_data = 'Недостаточно данных для создания учетной записи'
+    text_courier_order_accept_insufficient_data = 'Недостаточно данных для поиска'
+    text_courier_order_accept_incorrect_courier = 'Курьера с таким id не существует'
+    text_courier_order_accept_incorrect_order = 'Заказа с таким id не существует'
+    text_courier_order_get_incorrect_track = 'Заказ не найден'
 
